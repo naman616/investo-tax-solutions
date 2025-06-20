@@ -166,17 +166,34 @@ const ServiceDetail = () => {
       [name]: value
     }));
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(`${service?.title} appointment:`, formData);
-    alert(`Thank you for booking a ${service?.title} appointment! We will reach out to you soon.`);
-    setFormData({
-      name: '',
-      email: '',
-      phone: ''
-    });
+  
+    try {
+      const response = await fetch('http://localhost:5000/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: service?.title
+        })
+      });
+  
+      if (response.ok) {
+        alert(`Thank you for booking a ${service?.title} appointment! We will reach out to you soon.`);
+        setFormData({ name: '', email: '', phone: '' });
+      } else {
+        alert('Failed to send email. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Something went wrong.');
+    }
   };
+  
 
   if (!service) {
     return (
@@ -196,7 +213,7 @@ const ServiceDetail = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/86e297e2-14be-4917-a44d-353fcc64bc9a.png" 
+              src="logo_its.png" 
               alt="Investo Tax Solutions" 
               className="h-12 w-12"
             />

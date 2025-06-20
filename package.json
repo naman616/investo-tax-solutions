@@ -47,11 +47,15 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+    "cors": "^2.8.5",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.5.0",
     "embla-carousel-react": "^8.3.0",
+    "express": "^5.1.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
+    "nodemailer": "^7.0.3",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
@@ -78,11 +82,22 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "gh-pages": "^6.3.0",
     "globals": "^15.9.0",
-    "lovable-tagger": "^1.1.7",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^6.3.5"
+  },
+  "description": "**URL**: https://lovable.dev/projects/a8c39d2c-c630-4842-8fdc-d44fc8b2ea9a",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naman616/investo-tax-solutions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naman616/investo-tax-solutions/issues"
   }
 }

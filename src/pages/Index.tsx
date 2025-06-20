@@ -49,16 +49,31 @@ const Index = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your submission! We will reach out to you soon.');
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: ''
-    });
+  
+    try {
+      const response = await fetch('http://localhost:5000/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          
+        })
+      });
+  
+      if (response.ok) {
+        alert(`Thank you for booking an appointment! We will reach out to you soon.`);
+        setFormData({ name: '', email: '', phone: '' });
+      } else {
+        alert('Failed to send email. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Something went wrong.');
+    }
   };
 
   const scrollToContact = () => {
@@ -85,9 +100,9 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/86e297e2-14be-4917-a44d-353fcc64bc9a.png" 
+              src="logo_its.png" 
               alt="Investo Tax Solutions" 
-              className="h-8 w-8 md:h-12 md:w-12"
+              className="h-10 w-10 md:h-12 md:w-12"
             />
             <span className="text-lg md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Investo Tax Solutions
@@ -118,9 +133,9 @@ const Index = () => {
           <div className="flex justify-center mb-6 md:mb-8">
             <div className="p-3 md:p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl">
               <img 
-                src="/lovable-uploads/86e297e2-14be-4917-a44d-353fcc64bc9a.png" 
+                src="logo_its.png" 
                 alt="Investo Tax Solutions" 
-                className="h-20 w-20 md:h-32 md:w-32"
+                className="h-25 w- md:h-32 md:w-32"
               />
             </div>
           </div>
@@ -458,7 +473,7 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="/lovable-uploads/86e297e2-14be-4917-a44d-353fcc64bc9a.png" 
+                  src="logo_its.png" 
                   alt="Investo Tax Solutions" 
                   className="h-8 w-8 md:h-10 md:w-10"
                 />
