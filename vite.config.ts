@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/investo-tax-solutions/",
+  base: mode === 'production' ? "/investo-tax-solutions/" : "/",
   server: {
     host: "::",
     port: 8080,
