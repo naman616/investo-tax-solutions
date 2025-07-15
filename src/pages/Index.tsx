@@ -20,7 +20,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -109,9 +109,18 @@ const Index = () => {
             </span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={scrollToServices} className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+            <Link to="/services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
               Services
-            </button>
+            </Link>
+            <Link to="/appointment" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              Book Appointment
+            </Link>
+            <Link to="/documents" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              Submit Documents
+            </Link>
+            <Link to="#clients" onClick={e => { e.preventDefault(); document.getElementById('clients')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              Clients
+            </Link>
             <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">About</a>
             <button onClick={scrollToContact} className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
               Contact
@@ -122,6 +131,9 @@ const Index = () => {
             >
               Book an Appointment
             </Button>
+            <Link to="/admin-login" className="ml-2 px-4 py-2 rounded bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 font-medium transition-colors">
+              Login
+            </Link>
           </nav>
         </div>
       </header>
@@ -186,7 +198,7 @@ const Index = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
             <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-blue-50 border-0 cursor-pointer"
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-blue-50 border-0"
               onClick={() => handleServiceClick('GST Services')}
             >
               <CardHeader className="text-center p-3 md:p-6">
@@ -203,7 +215,7 @@ const Index = () => {
             </Card>
 
             <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-green-50 border-0 cursor-pointer"
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-green-50 border-0"
               onClick={() => handleServiceClick('E-Invoicing')}
             >
               <CardHeader className="text-center p-3 md:p-6">
@@ -220,7 +232,7 @@ const Index = () => {
             </Card>
 
             <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-orange-50 border-0 cursor-pointer"
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-orange-50 border-0"
               onClick={() => handleServiceClick('E-Way Bill')}
             >
               <CardHeader className="text-center p-3 md:p-6">
@@ -237,7 +249,7 @@ const Index = () => {
             </Card>
 
             <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-purple-50 border-0 cursor-pointer"
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-purple-50 border-0"
               onClick={() => handleServiceClick('MaxITC')}
             >
               <CardHeader className="text-center p-3 md:p-6">
@@ -254,7 +266,7 @@ const Index = () => {
             </Card>
 
             <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-indigo-50 border-0 cursor-pointer"
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-indigo-50 border-0"
               onClick={() => handleServiceClick('TDS Services')}
             >
               <CardHeader className="text-center p-3 md:p-6">
@@ -271,7 +283,7 @@ const Index = () => {
             </Card>
 
             <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-emerald-50 border-0 cursor-pointer"
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-emerald-50 border-0"
               onClick={() => handleServiceClick('Financing')}
             >
               <CardHeader className="text-center p-3 md:p-6">
@@ -356,6 +368,26 @@ const Index = () => {
               From GST compliance to invoice discounting, we offer end-to-end solutions that simplify your business operations 
               and help you focus on what matters most - growing your business.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section id="clients" className="py-12 md:py-20 bg-white/90">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Our Clients</h2>
+            <p className="text-sm md:text-lg text-gray-600 mb-6">Trusted by leading companies</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-center">
+            <div className="flex flex-col items-center"><img src="/zomato.png" alt="Zomato" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Zomato</span></div>
+            <div className="flex flex-col items-center"><img src="/amazon.png" alt="Amazon" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Amazon</span></div>
+            <div className="flex flex-col items-center"><img src="/google.png" alt="Google" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Google</span></div>
+            <div className="flex flex-col items-center"><img src="/infosys.png" alt="Infosys" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Infosys</span></div>
+            <div className="flex flex-col items-center"><img src="/wipro.png" alt="Wipro" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Wipro</span></div>
+            <div className="flex flex-col items-center"><img src="/salesforce.png" alt="Salesforce" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Salesforce</span></div>
+            <div className="flex flex-col items-center"><img src="/walmart.png" alt="Walmart" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Walmart</span></div>
+            <div className="flex flex-col items-center"><img src="/ey.png" alt="EY" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">EY</span></div>
           </div>
         </div>
       </section>
