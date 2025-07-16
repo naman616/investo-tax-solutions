@@ -53,6 +53,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     return res.status(200).json({ success: true, message: 'Appointment received and email sent!' });
   } catch (error) {
+    console.error('APPOINTMENT API ERROR:', error);
+    if (error && error.response) {
+      console.error('Error response:', error.response);
+    }
+    if (error && error.stack) {
+      console.error('Error stack:', error.stack);
+    }
     return res.status(500).json({ message: 'Server error', error });
   }
 } 
