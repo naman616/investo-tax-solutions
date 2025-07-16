@@ -95,49 +95,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative">
-      {/* Header */}
-      <header className="border-b border-white/20 bg-white/80 backdrop-blur-md shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <img 
-              src="logo_its.png" 
-              alt="Investo Tax Solutions" 
-              className="h-10 w-10 md:h-12 md:w-12"
-            />
-            <span className="text-lg md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Investo Tax Solutions
-            </span>
-          </div>
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Services
-            </Link>
-            <Link to="/appointment" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Book Appointment
-            </Link>
-            <Link to="/documents" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Submit Documents
-            </Link>
-            <Link to="#clients" onClick={e => { e.preventDefault(); document.getElementById('clients')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Clients
-            </Link>
-            <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">About</a>
-            <button onClick={scrollToContact} className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Contact
-            </button>
-            <Button 
-              onClick={scrollToContact}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg"
-            >
-              Book an Appointment
-            </Button>
-            <Link to="/admin-login" className="ml-2 px-4 py-2 rounded bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 font-medium transition-colors">
-              Login
-            </Link>
-          </nav>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="py-12 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
@@ -147,7 +104,7 @@ const Index = () => {
               <img 
                 src="logo_its.png" 
                 alt="Investo Tax Solutions" 
-                className="h-25 w- md:h-32 md:w-32"
+                className="h-12 w-12 md:h-20 md:w-20"
               />
             </div>
           </div>
@@ -373,21 +330,45 @@ const Index = () => {
       </section>
 
       {/* Clients Section */}
-      <section id="clients" className="py-12 md:py-20 bg-white/90">
+      <section id="clients" className="py-12 md:py-20 bg-white/70 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Our Clients</h2>
             <p className="text-sm md:text-lg text-gray-600 mb-6">Trusted by leading companies</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-center">
-            <div className="flex flex-col items-center"><img src="/zomato.png" alt="Zomato" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Zomato</span></div>
-            <div className="flex flex-col items-center"><img src="/amazon.png" alt="Amazon" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Amazon</span></div>
-            <div className="flex flex-col items-center"><img src="/google.png" alt="Google" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Google</span></div>
-            <div className="flex flex-col items-center"><img src="/infosys.png" alt="Infosys" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Infosys</span></div>
-            <div className="flex flex-col items-center"><img src="/wipro.png" alt="Wipro" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Wipro</span></div>
-            <div className="flex flex-col items-center"><img src="/salesforce.png" alt="Salesforce" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Salesforce</span></div>
-            <div className="flex flex-col items-center"><img src="/walmart.png" alt="Walmart" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">Walmart</span></div>
-            <div className="flex flex-col items-center"><img src="/ey.png" alt="EY" className="h-12 w-12 md:h-16 md:w-16 mb-2" /><span className="text-xs text-gray-700">EY</span></div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center justify-center">
+            <div className="flex flex-col items-center">
+              <img src="/walmart.png" alt="Walmart" className="object-contain h-20 w-40 sm:h-24 sm:w-48 mb-2 rounded-xl shadow-md grayscale" />
+              <span className="text-xs text-gray-700">Walmart</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="/zomato.png" alt="Zomato" className="object-contain h-20 w-40 sm:h-24 sm:w-48 mb-2 rounded-xl shadow-md grayscale" />
+              <span className="text-xs text-gray-700">Zomato</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="/infosys.png" alt="Infosys" className="object-contain h-20 w-40 sm:h-24 sm:w-48 mb-2 rounded-xl shadow-md grayscale" />
+              <span className="text-xs text-gray-700">Infosys</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="/ey.png" alt="EY" className="object-contain h-20 w-40 sm:h-24 sm:w-48 mb-2 rounded-xl shadow-md grayscale" />
+              <span className="text-xs text-gray-700">EY</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="/google.png" alt="Google" className="object-contain h-20 w-40 sm:h-24 sm:w-48 mb-2 rounded-xl shadow-md grayscale" />
+              <span className="text-xs text-gray-700">Google</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="/wipro.png" alt="Wipro" className="object-contain h-20 w-40 sm:h-24 sm:w-48 mb-2 rounded-xl shadow-md grayscale" />
+              <span className="text-xs text-gray-700">Wipro</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="/amazon.png" alt="Amazon" className="object-contain h-20 w-40 sm:h-24 sm:w-48 mb-2 rounded-xl shadow-md grayscale" />
+              <span className="text-xs text-gray-700">Amazon</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="/salesforce.png" alt="Salesforce" className="object-contain h-20 w-40 sm:h-24 sm:w-48 mb-2 rounded-xl shadow-md grayscale" />
+              <span className="text-xs text-gray-700">Salesforce</span>
+            </div>
           </div>
         </div>
       </section>
@@ -466,7 +447,8 @@ const Index = () => {
                   </div>
                   
                   <Button 
-                    type="submit" 
+                    type="button"
+                    onClick={() => navigate('/appointment')}
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg text-base md:text-lg py-2 md:py-3" 
                     size="lg"
                   >
@@ -533,7 +515,7 @@ const Index = () => {
               <div className="space-y-2 text-gray-400 text-sm md:text-base">
                 <p className="flex items-center gap-2">
                   <Mail className="h-3 w-3 md:h-4 md:w-4" />
-                  investotaxsolutions@gmail.com
+                  ronakbumb@investotax.in
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone className="h-3 w-3 md:h-4 md:w-4" />

@@ -7,10 +7,10 @@ const BackButton = () => {
     <button
       onClick={() => navigate(-1)}
       style={{
-        position: "fixed",
-        top: 16,
-        left: 16,
-        zIndex: 101,
+        position: "absolute",
+        top: 24,
+        left: 24,
+        zIndex: 10,
         background: "white",
         border: "none",
         fontSize: 24,
@@ -25,7 +25,7 @@ const BackButton = () => {
       }}
       aria-label="Go back"
     >
-      &#10005;
+      ×
     </button>
   );
 };

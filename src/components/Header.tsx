@@ -2,59 +2,84 @@ import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
+const navLinks = [
+  { label: "Services", href: "#services", isAnchor: true },
+  { label: "Book Appointment", href: "/appointment" },
+  { label: "Submit Documents", href: "/documents" },
+  { label: "Clients", href: "#clients", isAnchor: true },
+  { label: "About", href: "#about", isAnchor: true },
+  { label: "Contact", href: "#contact", isAnchor: true },
+];
+
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
-  const handleServicesClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (location.pathname === "/") {
-      scrollTo("services");
-    } else {
-      navigate("/?scroll=services");
+  const handleNavClick = (e: React.MouseEvent, link: any) => {
+    if (link.isAnchor) {
+      e.preventDefault();
+      if (location.pathname === "/") {
+        scrollTo(link.href.replace('#', ''));
+      } else {
+        navigate(`/?scroll=${link.href.replace('#', '')}`);
+      }
+      setMobileMenuOpen(false);
     }
   };
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("scroll") === "services") {
-      setTimeout(() => scrollTo("services"), 100);
+    if (params.get("scroll")) {
+      setTimeout(() => scrollTo(params.get("scroll")!), 100);
     }
   }, [location]);
   return (
-    <header style={{
-      width: "100%",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      padding: "1rem 2rem",
-      position: "fixed",
-      top: 0,
-      left: 0,
-      zIndex: 100,
-      background: "white",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.03)"
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <Link to="/">
-          <img src="/logo_its.png" alt="Investo Tax Solutions Logo" style={{ height: 48 }} />
-        </Link>
-        <span style={{ fontWeight: 700, fontSize: 20, background: 'linear-gradient(to right, #2563eb, #9333ea)', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-          Investo Tax Solutions
-        </span>
+    <header className="w-full fixed top-0 left-0 z-50 bg-white shadow-sm">
+      <div className="flex items-center justify-between px-4 py-2 md:px-8 md:py-3">
+        <div className="flex items-center gap-2 md:gap-4">
+          <Link to="/">
+            <img 
+              src="/logo_its.png" 
+              alt="Investo Tax Solutions Logo" 
+              style={{ height: 36, width: 'auto', objectFit: 'contain', background: 'white', borderRadius: 8, padding: 2, marginLeft: 4, boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}
+            />
+          </Link>
+          <span className="font-bold text-lg md:text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent select-none">
+            Investo Tax Solutions
+          </span>
+        </div>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#services" onClick={e => handleNavClick(e, navLinks[0])} className="text-gray-700 hover:text-blue-600 font-medium">Services</a>
+          <Link to="/appointment" className="text-gray-700 hover:text-blue-600 font-medium">Book Appointment</Link>
+          <Link to="/documents" className="text-gray-700 hover:text-blue-600 font-medium">Submit Documents</Link>
+          <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 hover:text-blue-600 font-medium">Clients</a>
+          <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 hover:text-blue-600 font-medium">About</a>
+          <button onClick={() => scrollTo('contact')} className="text-gray-700 hover:text-blue-600 font-medium bg-none border-none cursor-pointer">Contact</button>
+          <Button onClick={() => scrollTo('contact')} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold">Book an Appointment</Button>
+          <Link to="/admin-login" className="ml-2 px-4 py-2 rounded bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 font-medium transition-colors">Login</Link>
+        </nav>
+        {/* Mobile Hamburger */}
+        <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(v => !v)} aria-label="Open menu">
+          <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
-      <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-        <a href="#services" onClick={handleServicesClick} style={{ color: '#374151', textDecoration: 'none', fontWeight: 500 }}>Services</a>
-        <Link to="/appointment" style={{ color: '#374151', textDecoration: 'none', fontWeight: 500 }}>Book Appointment</Link>
-        <Link to="/documents" style={{ color: '#374151', textDecoration: 'none', fontWeight: 500 }}>Submit Documents</Link>
-        <a href="#clients" onClick={e => { e.preventDefault(); scrollTo('clients'); }} style={{ color: '#374151', textDecoration: 'none', fontWeight: 500 }}>Clients</a>
-        <a href="#about" style={{ color: '#374151', textDecoration: 'none', fontWeight: 500 }}>About</a>
-        <button onClick={() => scrollTo('contact')} style={{ color: '#374151', background: 'none', border: 'none', fontWeight: 500, cursor: 'pointer' }}>Contact</button>
-        <Button onClick={() => scrollTo('contact')} style={{ background: 'linear-gradient(to right, #2563eb, #9333ea)', color: 'white', fontWeight: 600 }}>Book an Appointment</Button>
-        <Link to="/admin-login" style={{ marginLeft: 8, padding: '8px 16px', borderRadius: 6, background: '#eff6ff', color: '#2563eb', border: '1px solid #bfdbfe', fontWeight: 500, textDecoration: 'none' }}>Login</Link>
-      </nav>
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white shadow-lg border-t border-gray-100 px-4 py-4 flex flex-col gap-4">
+          <a href="#services" onClick={e => handleNavClick(e, navLinks[0])} className="text-gray-700 font-medium">Services</a>
+          <Link to="/appointment" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Book Appointment</Link>
+          <Link to="/documents" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Submit Documents</Link>
+          <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 font-medium">Clients</a>
+          <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 font-medium">About</a>
+          <button onClick={() => { scrollTo('contact'); setMobileMenuOpen(false); }} className="text-gray-700 font-medium bg-none border-none cursor-pointer">Contact</button>
+          <Button onClick={() => { scrollTo('contact'); setMobileMenuOpen(false); }} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold">Book an Appointment</Button>
+          <Link to="/admin-login" className="px-4 py-2 rounded bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Login</Link>
+        </div>
+      )}
     </header>
   );
 };
