@@ -53,7 +53,7 @@ const Index = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('/api/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -65,7 +65,7 @@ const Index = () => {
       });
   
       if (response.ok) {
-        alert(`Thank you for booking an appointment! We will reach out to you soon.`);
+        alert(`Thank you for booking an appointment! Your request has been received and we will reach out to you soon.`);
         setFormData({ name: '', email: '', phone: '' });
       } else {
         alert('Failed to send email. Please try again.');
