@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
+/**
+ * Reviews page component.
+ * Fetches and displays client reviews with a rating of 4 or higher.
+ */
 const Reviews = () => {
+  // State for reviews and error handling
   const [reviews, setReviews] = useState<any[]>([]);
   const [error, setError] = useState("");
 
+  // Fetch reviews from the internal API on mount
   useEffect(() => {
     fetch("/api/admin/reviews", {
       headers: { Authorization: "Bearer mock-session-token" },

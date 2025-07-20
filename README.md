@@ -1,48 +1,20 @@
-# Welcome to my 1st project
+# Investo Tax Solutions
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/a8c39d2c-c630-4842-8fdc-d44fc8b2ea9a
+Investo Tax Solutions is a modular web application for managing tax-related services, client appointments, document uploads, reviews, and blogs. The platform is built with React, TypeScript, Vite, Tailwind CSS, and shadcn-ui, and uses internal API endpoints for all business logic and data storage.
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
+## Technologies Used
 
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
+- Node.js (API endpoints)
+- MySQL (database)
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a8c39d2c-c630-4842-8fdc-d44fc8b2ea9a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
-
-# Investo Tax Solutions
-
-## Modular Folder Structure (Planned)
+## Folder Structure
 
 ```
 / (project root)
@@ -53,68 +25,50 @@ Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-trick
 │   │   ├── reviews.ts      # Reviews form handler
 │   │   ├── blogs.ts        # Blog CRUD endpoints
 │   │   └── admin/          # Admin-only endpoints (auth, data export)
-│   ├── pages/
-│   │   ├── Index.tsx       # Landing page
-│   │   ├── Services.tsx    # Services listing
-│   │   ├── Appointment.tsx # Appointment booking form
-│   │   ├── Documents.tsx   # Document submission form
-│   │   ├── Blogs.tsx       # Blog list
-│   │   ├── BlogDetail.tsx  # Blog detail
-│   │   ├── Reviews.tsx     # Customer reviews
-│   │   ├── AdminLogin.tsx  # Admin login
-│   │   └── AdminDashboard.tsx # Admin dashboard
-│   ├── components/
-│   │   └── ...             # UI components (reused)
+│   ├── pages/              # Main React pages
+│   ├── components/         # UI components (reused)
 │   └── ...                 # Other frontend code
 ├── public/                 # Static assets
 └── ...
 ```
 
-## Database Schema (Planned)
+## API Endpoints
 
-### clients
-- id (PK)
-- name
-- email
-- phone
-- created_at
+All forms and admin actions are handled via internal API endpoints:
 
-### appointments
-- id (PK)
-- client_id (FK)
-- service
-- preferred_date
-- notes
-- created_at
+- `POST /api/appointments` — Book a client appointment
+- `POST /api/admin/documents` — Upload client documents
+- `POST /api/reviews` — Submit a client review
+- `GET/POST/PUT/DELETE /api/admin/blogs` — Manage blog posts (admin only)
+- `POST /api/admin/login` — Admin authentication
 
-### documents
-- id (PK)
-- client_id (FK)
-- file_url
-- file_type
-- original_name
-- uploaded_at
+## Internal Forms
 
-### reviews
-- id (PK)
-- client_id (FK)
-- rating
-- comment
-- created_at
+All user and admin forms are implemented as React components and submit data to the above API endpoints. No external services (like Google Forms) are used.
 
-### blogs
-- id (PK)
-- title
-- content
-- author
-- created_at
+## Deployment
 
-### admin_users
-- id (PK)
-- username
-- password_hash
-- created_at
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Set up environment variables for SMTP and database access (see API handler docs).
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Deploy to Vercel, Netlify, or your preferred platform.
+
+## Database Schema
+
+See `/README.md` for planned schema. Tables include: clients, appointments, documents, reviews, blogs, admin_users.
+
+## Modular Design
+
+- All business logic is handled via internal API endpoints.
+- The frontend is fully decoupled from backend logic.
+- Easily extendable for new features and endpoints.
 
 ---
 
-This structure supports all planned features: internal forms, admin dashboard, file uploads, and modular expansion.
+For questions or contributions, please contact the project maintainer.

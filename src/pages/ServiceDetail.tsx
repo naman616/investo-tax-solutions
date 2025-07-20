@@ -136,23 +136,31 @@ const serviceDetails = {
   }
 };
 
+/**
+ * ServiceDetail page component.
+ * Shows details for a specific service and allows users to book an appointment or contact via WhatsApp.
+ */
 const ServiceDetail = () => {
+  // Get serviceId from route params and navigation hook
   const { serviceId } = useParams<{ serviceId: string }>();
   const navigate = useNavigate();
+  // State for appointment form fields
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: ''
   });
 
+  // Get service details from static object
   const service = serviceId ? serviceDetails[serviceId as keyof typeof serviceDetails] : null;
 
+  // WhatsApp message and URL for direct contact
   const whatsappMessage = encodeURIComponent(`Hi! I'm interested in your ${service?.title} services. Can you help me?`);
   const whatsappUrl = `https://wa.me/918788986439?text=${whatsappMessage}`;
 
+  // Handle input changes for the appointment form
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    
     if (name === 'phone') {
       const numericValue = value.replace(/\D/g, '');
       setFormData(prev => ({
@@ -161,16 +169,15 @@ const ServiceDetail = () => {
       }));
       return;
     }
-    
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-  
+
+  // Handle appointment form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
     try {
       const response = await fetch('/api/appointments', {
         method: 'POST',
@@ -182,7 +189,6 @@ const ServiceDetail = () => {
           service: service?.title
         })
       });
-  
       if (response.ok) {
         alert(`Thank you for booking a ${service?.title} appointment! We will reach out to you soon.`);
         setFormData({ name: '', email: '', phone: '' });

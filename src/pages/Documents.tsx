@@ -16,20 +16,29 @@ const documentFields = [
   "Others",
 ];
 
+/**
+ * Documents page component.
+ * Allows users to upload various financial documents and submit their contact info.
+ * On submit, sends data to the internal API for admin review.
+ */
 const Documents = () => {
+  // State for form fields and file uploads
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [files, setFiles] = useState<{ [key: string]: File | null }>({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  // Handle text input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Handle file input changes for each document field
   const handleFileChange = (field: string, file: File | null) => {
     setFiles((prev) => ({ ...prev, [field]: file }));
   };
 
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -44,6 +53,7 @@ const Documents = () => {
           formData.append(field, file);
         }
       });
+      // Send form data to internal API endpoint
       const res = await fetch('/api/admin/documents', {
         method: 'POST',
         body: formData,

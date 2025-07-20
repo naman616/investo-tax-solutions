@@ -28,8 +28,14 @@ function downloadCSV(data: any[], filename: string) {
   URL.revokeObjectURL(url);
 }
 
+/**
+ * Admin dashboard for managing appointments, documents, reviews, and blogs
+ * Allows admin users to view, export, and manage appointments, documents, and blogs.
+ * Fetches data from internal API endpoints and provides CSV export.
+ */
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  // State for admin data and UI
   const [appointments, setAppointments] = useState<any[]>([]);
   const [documents, setDocuments] = useState<any[]>([]);
   const [reviews, setReviews] = useState<any[]>([]);
@@ -40,6 +46,7 @@ const AdminDashboard = () => {
   const [blogLoading, setBlogLoading] = useState(false);
   const blogFormRef = useRef<HTMLFormElement>(null);
 
+  // Fetch all admin data on mount
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
     if (!token) {
