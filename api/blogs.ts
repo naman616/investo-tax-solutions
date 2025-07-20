@@ -1,7 +1,6 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import mysql from 'mysql2/promise';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: any, res: any) {
   if (req.method === 'POST') {
     const { title, content, author } = req.body;
     if (!title || !content || !author) {
@@ -15,7 +14,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       );
       await connection.end();
       return res.status(200).json({ success: true, message: 'Blog post created!' });
-    } catch (error) {
+    } catch (error: any) {
       return res.status(500).json({ message: 'Database error', error });
     }
   }
@@ -25,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const [rows] = await connection.execute('SELECT * FROM blogs ORDER BY created_at DESC');
       await connection.end();
       return res.status(200).json({ blogs: rows });
-    } catch (error) {
+    } catch (error: any) {
       return res.status(500).json({ message: 'Database error', error });
     }
   }

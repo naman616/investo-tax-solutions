@@ -53,7 +53,7 @@ const Index = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch('https://mhti62ko.up.railway.app/api/appointments', {
+      const response = await fetch('/api/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -102,7 +102,7 @@ const Index = () => {
           <div className="flex justify-center mb-6 md:mb-8">
             <div className="p-3 md:p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl">
               <img 
-                src="logo_its.png" 
+                src="/logo_its.png" 
                 alt="Investo Tax Solutions" 
                 className="h-12 w-12 md:h-20 md:w-20"
               />
@@ -487,7 +487,7 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="logo_its.png" 
+                  src="/logo_its.png" 
                   alt="Investo Tax Solutions" 
                   className="h-8 w-8 md:h-10 md:w-10"
                 />
