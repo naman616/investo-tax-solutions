@@ -7,6 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Hardcode for clarity, but user should also set these in Railway variables
+process.env.EMAIL_FROM = 'investotaxsolutions@gmail.com';
+process.env.EMAIL_TO = 'investotaxsolutions@gmail.com';
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.post('/api/appointments', async (req, res) => {
