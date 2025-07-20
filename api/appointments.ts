@@ -11,15 +11,27 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ message: 'Missing required fields' });
   }
 
+  // Log environment variables for debugging (do not log secrets)
+  console.log('EMAIL_FROM:', process.env.EMAIL_FROM);
+  console.log('EMAIL_TO:', process.env.EMAIL_TO);
+  console.log('SMTP_HOST:', process.env.SMTP_HOST);
+  console.log('SMTP_PORT:', process.env.SMTP_PORT);
+  console.log('DATABASE_URL set:', !!process.env.DATABASE_URL);
+
   try {
     // Store in database (optional, can be removed if not needed)
     if (process.env.DATABASE_URL) {
-      const connection = await mysql.createConnection(process.env.DATABASE_URL!);
-      await connection.execute(
-        'INSERT INTO appointments (name, email, phone, service, date, notes) VALUES (?, ?, ?, ?, ?, ?)',
-        [name, email, phone, service, date || '', notes || '']
-      );
-      await connection.end();
+      try {
+        const connection = await mysql.createConnection(process.env.DATABASE_URL!);
+        await connection.execute(
+          'INSERT INTO appointments (name, email, phone, service, date, notes) VALUES (?, ?, ?, ?, ?, ?)',
+          [name, email, phone, service, date || '', notes || '']
+        );
+        await connection.end();
+      } catch (dbErr) {
+        console.error('DB ERROR:', dbErr);
+        // Continue even if DB fails
+      }
     }
 
     // Send email
@@ -59,6 +71,15 @@ export default async function handler(req: any, res: any) {
     if (error && error.stack) {
       console.error('Error stack:', error.stack);
     }
-    return res.status(500).json({ message: 'Server error', error });
+    // Log all envs for debugging
+    console.error('ENV DEBUG:', {
+      EMAIL_FROM: process.env.EMAIL_FROM,
+      EMAIL_TO: process.env.EMAIL_TO,
+      SMTP_HOST: process.env.SMTP_HOST,
+      SMTP_PORT: process.env.SMTP_PORT,
+      EMAIL_PASS_SET: !!process.env.EMAIL_PASS,
+      DATABASE_URL_SET: !!process.env.DATABASE_URL,
+    });
+    return res.status(500).json({ message: 'Server error', error: error?.message || error });
   }
 } 
