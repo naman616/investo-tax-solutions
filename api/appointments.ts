@@ -6,9 +6,22 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  const { name, email, phone, service, date, notes } = req.body;
+  const { name, email, phone = '', service, date = '', notes = '' } = req.body;
   if (!name || !email || !service) {
     return res.status(400).json({ message: 'Missing required fields' });
+  }
+
+  // Check required environment variables
+  const requiredEnvs = [
+    'EMAIL_FROM',
+    'EMAIL_PASS',
+    'EMAIL_TO',
+    'SMTP_HOST',
+    'SMTP_PORT',
+  ];
+  const missingEnvs = requiredEnvs.filter((env) => !process.env[env]);
+  if (missingEnvs.length > 0) {
+    return res.status(500).json({ message: `Missing environment variables: ${missingEnvs.join(', ')}` });
   }
 
   // Log environment variables for debugging (do not log secrets)
@@ -25,7 +38,7 @@ export default async function handler(req: any, res: any) {
         const connection = await mysql.createConnection(process.env.DATABASE_URL!);
         await connection.execute(
           'INSERT INTO appointments (name, email, phone, service, date, notes) VALUES (?, ?, ?, ?, ?, ?)',
-          [name, email, phone, service, date || '', notes || '']
+          [name, email, phone, service, date, notes]
         );
         await connection.end();
       } catch (dbErr) {
