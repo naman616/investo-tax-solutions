@@ -1,6 +1,5 @@
-import formidable from 'formidable';
+import formidable, { IncomingForm } from 'formidable';
 import { v2 as cloudinary } from 'cloudinary';
-import { IncomingForm } from 'formidable';
 import fs from 'fs';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
@@ -21,7 +20,7 @@ export const config = {
   },
 };
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   try {
     if (req.method !== 'POST') {
       return res.status(405).json({ message: 'Method not allowed' });
@@ -29,7 +28,7 @@ export default async function handler(req, res) {
 
     const form = new IncomingForm({ multiples: true });
 
-    form.parse(req, async (err, fields, files) => {
+    form.parse(req, async (err: any, fields: any, files: any) => {
       if (err) {
         console.error('FORM PARSE ERROR:', err);
         return res.status(500).json({ message: 'Error parsing form data', error: err });
@@ -53,7 +52,7 @@ export default async function handler(req, res) {
             });
             // Upload to Cloudinary for backup
             const streamUpload = () => {
-              return new Promise((resolve, reject) => {
+              return new Promise<any>((resolve, reject) => {
                 const stream = cloudinary.uploader.upload_stream(
                   {
                     folder: `investo-tax-solutions/${fields.email || 'unknown'}`,
@@ -61,7 +60,7 @@ export default async function handler(req, res) {
                     use_filename: true,
                     unique_filename: false,
                   },
-                  (error, result) => {
+                  (error: any, result: any) => {
                     if (result) {
                       resolve(result);
                     } else {
@@ -72,7 +71,7 @@ export default async function handler(req, res) {
                 fs.createReadStream(file.filepath).pipe(stream);
               });
             };
-            let uploadResult;
+            let uploadResult: any;
             try {
               uploadResult = await streamUpload();
             } catch (err) {
@@ -108,7 +107,7 @@ export default async function handler(req, res) {
           },
         });
 
-        const fileLinks = uploadedFiles.map(f => {
+        const fileLinks = uploadedFiles.map((f: any) => {
           const downloadUrl = `${f.url}?attachment=${encodeURIComponent(f.original_filename)}`;
           return `<li><a href="${downloadUrl}">${f.field} (${f.original_filename})</a></li>`;
         }).join('');
@@ -128,14 +127,14 @@ export default async function handler(req, res) {
           html,
           attachments,
         });
-      } catch (mailErr) {
+      } catch (mailErr: any) {
         console.error('EMAIL SEND ERROR:', mailErr);
         return res.status(500).json({ message: 'Email send failed', error: mailErr });
       }
 
       return res.status(200).json({ success: true, files: uploadedFiles });
     });
-  } catch (err) {
+  } catch (err: any) {
     console.error('TOP LEVEL ERROR:', err);
     return res.status(500).json({ message: 'Top level error', error: err });
   }
