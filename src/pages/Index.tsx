@@ -53,7 +53,7 @@ const Index = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch('/api/appointments', {
+      const response = await fetch('https://mhti62ko.up.railway.app/api/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

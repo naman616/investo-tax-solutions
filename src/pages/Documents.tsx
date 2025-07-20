@@ -44,7 +44,7 @@ const Documents = () => {
           formData.append(field, file);
         }
       });
-      const res = await fetch('/api/documents', {
+      const res = await fetch('https://mhti62ko.up.railway.app/api/documents', {
         method: 'POST',
         body: formData,
       });
