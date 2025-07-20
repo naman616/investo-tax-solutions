@@ -77,7 +77,10 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@tailwindcss/typography": "^0.5.15",
+    "@types/formidable": "^3.4.5",
+    "@types/mime-types": "^3.0.1",
     "@types/node": "^22.16.4",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
