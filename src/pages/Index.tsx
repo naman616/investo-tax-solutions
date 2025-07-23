@@ -374,7 +374,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8 md:py-12">
+      <footer id="contact" className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <div>
