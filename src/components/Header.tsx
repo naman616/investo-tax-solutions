@@ -54,7 +54,6 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           <a href="#services" onClick={e => handleNavClick(e, navLinks[0])} className="text-gray-700 hover:text-blue-600 font-medium">Services</a>
-          <Link to="/appointment" className="text-gray-700 hover:text-blue-600 font-medium">Book Appointment</Link>
           <Link to="/documents" className="text-gray-700 hover:text-blue-600 font-medium">Submit Documents</Link>
           <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 hover:text-blue-600 font-medium">Clients</a>
           <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 hover:text-blue-600 font-medium">About</a>
@@ -71,7 +70,6 @@ const Header = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg border-t border-gray-100 px-4 py-4 flex flex-col gap-4">
           <a href="#services" onClick={e => handleNavClick(e, navLinks[0])} className="text-gray-700 font-medium">Services</a>
-          <Link to="/appointment" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Book Appointment</Link>
           <Link to="/documents" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Submit Documents</Link>
           <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 font-medium">Clients</a>
           <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 font-medium">About</a>

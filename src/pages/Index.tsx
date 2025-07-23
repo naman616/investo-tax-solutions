@@ -447,8 +447,7 @@ const Index = () => {
                   </div>
                   
                   <Button 
-                    type="button"
-                    onClick={() => navigate('/appointment')}
+                    type="submit"
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg text-base md:text-lg py-2 md:py-3" 
                     size="lg"
                   >
