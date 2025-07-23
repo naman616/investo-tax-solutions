@@ -122,8 +122,8 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              size="lg" 
-              onClick={scrollToContact}
+              size="lg"
+              onClick={() => navigate('/appointment')}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
             >
               Book an Appointment
