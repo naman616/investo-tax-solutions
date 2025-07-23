@@ -57,8 +57,8 @@ const Header = () => {
           <Link to="/documents" className="text-gray-700 hover:text-blue-600 font-medium">Submit Documents</Link>
           <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 hover:text-blue-600 font-medium">Clients</a>
           <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 hover:text-blue-600 font-medium">About</a>
-          <button onClick={() => scrollTo('contact')} className="text-gray-700 hover:text-blue-600 font-medium bg-none border-none cursor-pointer">Contact</button>
-          <Button onClick={() => scrollTo('contact')} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold">Book an Appointment</Button>
+          <Link to="/appointment" className="text-gray-700 hover:text-blue-600 font-medium">Contact</Link>
+          <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold"><Link to="/appointment">Book an Appointment</Link></Button>
         </nav>
         {/* Mobile Hamburger */}
         <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(v => !v)} aria-label="Open menu">
@@ -72,8 +72,8 @@ const Header = () => {
           <Link to="/documents" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Submit Documents</Link>
           <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 font-medium">Clients</a>
           <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 font-medium">About</a>
-          <button onClick={() => { scrollTo('contact'); setMobileMenuOpen(false); }} className="text-gray-700 font-medium bg-none border-none cursor-pointer">Contact</button>
-          <Button onClick={() => { scrollTo('contact'); setMobileMenuOpen(false); }} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold">Book an Appointment</Button>
+          <Link to="/appointment" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+          <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold"><Link to="/appointment" onClick={() => setMobileMenuOpen(false)}>Book an Appointment</Link></Button>
         </div>
       )}
     </header>
