@@ -57,7 +57,7 @@ const Header = () => {
           <Link to="/documents" className="text-gray-700 hover:text-blue-600 font-medium">Submit Documents</Link>
           <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 hover:text-blue-600 font-medium">Clients</a>
           <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 hover:text-blue-600 font-medium">About</a>
-          <Link to="/appointment" className="text-gray-700 hover:text-blue-600 font-medium">Contact</Link>
+          <a href="#contact" onClick={e => handleNavClick(e, navLinks[5])} className="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
           <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold"><Link to="/appointment">Book an Appointment</Link></Button>
         </nav>
         {/* Mobile Hamburger */}
@@ -72,7 +72,7 @@ const Header = () => {
           <Link to="/documents" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Submit Documents</Link>
           <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 font-medium">Clients</a>
           <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 font-medium">About</a>
-          <Link to="/appointment" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+          <a href="#contact" onClick={e => { handleNavClick(e, navLinks[5]); setMobileMenuOpen(false); }} className="text-gray-700 font-medium">Contact</a>
           <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold"><Link to="/appointment" onClick={() => setMobileMenuOpen(false)}>Book an Appointment</Link></Button>
         </div>
       )}
