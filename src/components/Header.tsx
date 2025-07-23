@@ -59,7 +59,6 @@ const Header = () => {
           <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 hover:text-blue-600 font-medium">About</a>
           <button onClick={() => scrollTo('contact')} className="text-gray-700 hover:text-blue-600 font-medium bg-none border-none cursor-pointer">Contact</button>
           <Button onClick={() => scrollTo('contact')} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold">Book an Appointment</Button>
-          <Link to="/admin-login" className="ml-2 px-4 py-2 rounded bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 font-medium transition-colors">Login</Link>
         </nav>
         {/* Mobile Hamburger */}
         <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(v => !v)} aria-label="Open menu">
@@ -75,7 +74,6 @@ const Header = () => {
           <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 font-medium">About</a>
           <button onClick={() => { scrollTo('contact'); setMobileMenuOpen(false); }} className="text-gray-700 font-medium bg-none border-none cursor-pointer">Contact</button>
           <Button onClick={() => { scrollTo('contact'); setMobileMenuOpen(false); }} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold">Book an Appointment</Button>
-          <Link to="/admin-login" className="px-4 py-2 rounded bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Login</Link>
         </div>
       )}
     </header>

@@ -14,6 +14,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Blogs from "./pages/Blogs";
 import BlogDetail from "./pages/BlogDetail";
 import Reviews from "./pages/Reviews";
+import Appointment from "./pages/Appointment";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/:blogId" element={<BlogDetail />} />
             <Route path="/reviews" element={<Reviews />} />
+            <Route path="/appointment" element={<Appointment />} />
             <Route path="/admin-login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/services/:serviceId" element={<ServiceDetail />} />
