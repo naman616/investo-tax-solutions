@@ -408,7 +408,7 @@ const Index = () => {
               <div className="space-y-2 text-gray-400 text-sm md:text-base">
                 <p className="flex items-center gap-2">
                   <Mail className="h-3 w-3 md:h-4 md:w-4" />
-                  ronakbumb@investotax.in
+                  contact@investotax.in
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone className="h-3 w-3 md:h-4 md:w-4" />
