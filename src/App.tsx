@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
 import Services from "./pages/Services";
-import Appointment from "./pages/Appointment";
 import Documents from "./pages/Documents";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
