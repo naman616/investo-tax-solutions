@@ -107,10 +107,6 @@ const Documents = () => {
           </Button>
           {success && <div className="text-green-600 text-center mt-2">Documents submitted successfully!</div>}
         </form>
-        <div className="mt-8 text-xs text-gray-500 text-center border-t pt-4">
-          <strong>How to check if your file was uploaded:</strong><br />
-          Log in to the <span className="text-blue-700 font-semibold">Admin Dashboard</span> and view the Documents tab. You will see all submitted files and can download them directly from there.
-        </div>
       </div>
     </div>
   );
