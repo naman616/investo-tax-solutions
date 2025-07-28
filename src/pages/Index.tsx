@@ -91,7 +91,9 @@ const Index = () => {
       .replace(/\s+/g, '-')
       .replace(/[&()]/g, '') // Remove &, (, and )
       .replace(/--+/g, '-') // Remove multiple consecutive hyphens
-      .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+      .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
+      .replace(/on-site/g, 'onsite') // Special case for On-Site
+      .replace(/remote-accounting/g, 'remote-accounting'); // Keep this as is
     navigate(`/services/${urlSlug}`);
   };
 

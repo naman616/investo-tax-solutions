@@ -250,7 +250,7 @@ const serviceDetails = {
       'Comprehensive compliance monitoring',
     ]
   },
-  'onsite-remote-accounting': {
+  'on-site-remote-accounting': {
     title: 'On-Site & Remote Accounting',
     description: 'Providing skilled human resources for maintaining accounts and bookkeeping at your premises or remotely.',
     details: [
