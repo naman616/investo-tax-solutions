@@ -408,8 +408,8 @@ const ServiceDetail = () => {
               <div>
                 <Card className="shadow-2xl border-0 bg-white sticky top-8">
                   <CardHeader>
-                    <CardTitle className="text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                      Book an Appointment for {service.title}
+                    <CardTitle className="text-xl md:text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent break-words">
+                      Book an Appointment
                     </CardTitle>
                     <CardDescription>
                       Get expert assistance with our {service.title.toLowerCase()} services
@@ -470,10 +470,10 @@ const ServiceDetail = () => {
                       
                       <Button 
                         type="submit" 
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg text-lg py-3" 
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg text-base md:text-lg py-3 break-words" 
                         size="lg"
                       >
-                        Book an Appointment for {service.title}
+                        Book Appointment
                       </Button>
                     </form>
                     
