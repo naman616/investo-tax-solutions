@@ -1,154 +1,82 @@
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+
+const navLinks = [
+  { label: "Services", href: "#services", isAnchor: true },
+  { label: "Book Appointment", href: "/appointment" },
+  { label: "Submit Documents", href: "/documents" },
+  { label: "Clients", href: "#clients", isAnchor: true },
+  { label: "About", href: "#about", isAnchor: true },
+  { label: "Contact", href: "#contact", isAnchor: true },
+];
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
-  const scrollToContact = () => {
-    if (location.pathname === '/') {
-      const contactSection = document.getElementById('contact');
-      contactSection?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // Navigate to home and then scroll to contact
-      window.location.href = '/#contact';
+  const handleNavClick = (e: React.MouseEvent, link: any) => {
+    if (link.isAnchor) {
+      e.preventDefault();
+      if (location.pathname === "/") {
+        scrollTo(link.href.replace('#', ''));
+      } else {
+        navigate(`/?scroll=${link.href.replace('#', '')}`);
+      }
+      setMobileMenuOpen(false);
     }
   };
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("scroll")) {
+      setTimeout(() => scrollTo(params.get("scroll")!), 100);
+    }
+  }, [location]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3" onClick={closeMenu}>
+    <header className="w-full fixed top-0 left-0 z-50 bg-white shadow-sm">
+      <div className="flex items-center justify-between px-4 py-2 md:px-8 md:py-3">
+        <div className="flex items-center gap-2 md:gap-4">
+          <Link to="/">
             <img 
               src="/logo_its.png" 
-              alt="Investo Tax Solutions" 
-              className="h-8 w-8 md:h-10 md:w-10"
+              alt="Investo Tax Solutions Logo" 
+              style={{ height: 36, width: 'auto', objectFit: 'contain', background: 'white', borderRadius: 8, padding: 2, marginLeft: 4, boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}
             />
-            <span className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Investo Tax Solutions
-            </span>
           </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/services" 
-              className="text-gray-300 hover:text-white transition-colors font-medium"
-              onClick={closeMenu}
-            >
-              Services
-            </Link>
-            <Link 
-              to="/documents" 
-              className="text-gray-300 hover:text-white transition-colors font-medium"
-              onClick={closeMenu}
-            >
-              Submit Documents
-            </Link>
-            <Link 
-              to="/reviews" 
-              className="text-gray-300 hover:text-white transition-colors font-medium"
-              onClick={closeMenu}
-            >
-              Clients
-            </Link>
-            <Link 
-              to="/blogs" 
-              className="text-gray-300 hover:text-white transition-colors font-medium"
-              onClick={closeMenu}
-            >
-              About
-            </Link>
-            <Button 
-              onClick={scrollToContact}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg shadow-lg border border-white/20 backdrop-blur-sm"
-            >
-              Contact
-            </Button>
-            <Link to="/appointment">
-              <Button 
-                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-2 rounded-lg shadow-lg border border-white/20 backdrop-blur-sm"
-              >
-                Book an Appointment
-              </Button>
-            </Link>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 text-gray-300 hover:text-white transition-colors"
-          >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <span className="font-bold text-lg md:text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent select-none">
+            Investo Tax Solutions
+          </span>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-white/10">
-            <nav className="py-4 space-y-4">
-              <Link 
-                to="/services" 
-                className="block px-4 py-2 text-gray-300 hover:text-white transition-colors font-medium"
-                onClick={closeMenu}
-              >
-                Services
-              </Link>
-              <Link 
-                to="/documents" 
-                className="block px-4 py-2 text-gray-300 hover:text-white transition-colors font-medium"
-                onClick={closeMenu}
-              >
-                Submit Documents
-              </Link>
-              <Link 
-                to="/reviews" 
-                className="block px-4 py-2 text-gray-300 hover:text-white transition-colors font-medium"
-                onClick={closeMenu}
-              >
-                Clients
-              </Link>
-              <Link 
-                to="/blogs" 
-                className="block px-4 py-2 text-gray-300 hover:text-white transition-colors font-medium"
-                onClick={closeMenu}
-              >
-                About
-              </Link>
-              <div className="px-4 space-y-2">
-                <Button 
-                  onClick={() => {
-                    scrollToContact();
-                    closeMenu();
-                  }}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-2 rounded-lg shadow-lg border border-white/20 backdrop-blur-sm"
-                >
-                  Contact
-                </Button>
-                <Link to="/appointment" onClick={closeMenu}>
-                  <Button 
-                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-2 rounded-lg shadow-lg border border-white/20 backdrop-blur-sm"
-                  >
-                    Book an Appointment
-                  </Button>
-                </Link>
-              </div>
-            </nav>
-          </div>
-        )}
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#services" onClick={e => handleNavClick(e, navLinks[0])} className="text-gray-700 hover:text-blue-600 font-medium">Services</a>
+          <Link to="/documents" className="text-gray-700 hover:text-blue-600 font-medium">Submit Documents</Link>
+          <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 hover:text-blue-600 font-medium">Clients</a>
+          <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 hover:text-blue-600 font-medium">About</a>
+          <a href="#contact" onClick={e => handleNavClick(e, navLinks[5])} className="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+          <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold"><Link to="/appointment">Book an Appointment</Link></Button>
+        </nav>
+        {/* Mobile Hamburger */}
+        <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(v => !v)} aria-label="Open menu">
+          <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white shadow-lg border-t border-gray-100 px-4 py-4 flex flex-col gap-4">
+          <a href="#services" onClick={e => handleNavClick(e, navLinks[0])} className="text-gray-700 font-medium">Services</a>
+          <Link to="/documents" className="text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>Submit Documents</Link>
+          <a href="#clients" onClick={e => handleNavClick(e, navLinks[3])} className="text-gray-700 font-medium">Clients</a>
+          <a href="#about" onClick={e => handleNavClick(e, navLinks[4])} className="text-gray-700 font-medium">About</a>
+          <a href="#contact" onClick={e => { handleNavClick(e, navLinks[5]); setMobileMenuOpen(false); }} className="text-gray-700 font-medium">Contact</a>
+          <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold"><Link to="/appointment" onClick={() => setMobileMenuOpen(false)}>Book an Appointment</Link></Button>
+        </div>
+      )}
     </header>
   );
 };
