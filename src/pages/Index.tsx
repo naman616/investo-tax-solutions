@@ -87,7 +87,11 @@ const Index = () => {
   };
 
   const handleServiceClick = (service: string) => {
-    const urlSlug = service.toLowerCase().replace(/\s+/g, '-').replace(/[&]/g, '').replace(/--+/g, '-');
+    const urlSlug = service.toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[&()]/g, '') // Remove &, (, and )
+      .replace(/--+/g, '-') // Remove multiple consecutive hyphens
+      .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
     navigate(`/services/${urlSlug}`);
   };
 
