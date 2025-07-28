@@ -473,7 +473,7 @@ const ServiceDetail = () => {
                         className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg text-base md:text-lg py-3 break-words" 
                         size="lg"
                       >
-                        Book Appointment
+                        Book Appointment Now
                       </Button>
                     </form>
                     
