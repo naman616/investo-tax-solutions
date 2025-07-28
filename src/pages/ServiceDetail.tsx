@@ -185,7 +185,7 @@ const serviceDetails = {
     ]
   },
   'litigation-representation': {
-    title: 'Litigation & Representation Services',
+    title: 'Litigation & Representation',
     description: 'Expert handling of notices, assessments, and appeals before tax authorities.',
     details: [
       'Drafting & Filing of Appeals',
@@ -251,7 +251,7 @@ const serviceDetails = {
     ]
   },
   'onsite-remote-accounting': {
-    title: 'On-Site & Remote Accounting Support',
+    title: 'On-Site & Remote Accounting',
     description: 'Providing skilled human resources for maintaining accounts and bookkeeping at your premises or remotely.',
     details: [
       'On-site Bookkeeping & Accounting',

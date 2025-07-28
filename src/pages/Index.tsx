@@ -297,14 +297,14 @@ const Index = () => {
 
             <Card 
               className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-rose-50 border-0"
-              onClick={() => handleServiceClick('Litigation & Representation Services')}
+              onClick={() => handleServiceClick('Litigation & Representation')}
             >
               <CardHeader className="text-center p-3 md:p-6">
                 <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full w-fit">
                   <Shield className="h-4 w-4 md:h-8 md:w-8 text-white" />
                 </div>
                 <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
-                  Litigation & Representation Services
+                  Litigation & Representation
                 </CardTitle>
                 <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
                   Expert handling of notices, assessments, and appeals before authorities
@@ -348,14 +348,14 @@ const Index = () => {
 
             <Card 
               className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-lime-50 border-0"
-              onClick={() => handleServiceClick('On-Site & Remote Accounting Support')}
+              onClick={() => handleServiceClick('On-Site & Remote Accounting')}
             >
               <CardHeader className="text-center p-3 md:p-6">
                 <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-lime-500 to-green-500 rounded-full w-fit">
                   <Clock className="h-4 w-4 md:h-8 md:w-8 text-white" />
                 </div>
                 <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-lime-600 to-green-600 bg-clip-text text-transparent">
-                  On-Site & Remote Accounting Support
+                  On-Site & Remote Accounting
                 </CardTitle>
                 <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
                   Providing skilled human resources for maintaining accounts and bookkeeping

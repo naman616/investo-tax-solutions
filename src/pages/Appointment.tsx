@@ -13,10 +13,10 @@ const services = [
   "Internal & Management Audits",
   "Business & Financial Consultancy",
   "ROC & Corporate Compliance",
-  "Litigation & Representation Services",
+  "Litigation & Representation",
   "Trust Formation & Compliance",
   "Trust Audits & Reporting",
-  "On-Site & Remote Accounting Support",
+  "On-Site & Remote Accounting",
 ];
 
 const Appointment = () => {
