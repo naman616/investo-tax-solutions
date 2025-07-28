@@ -353,50 +353,50 @@ const ServiceDetail = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative font-sans">
         {/* REMOVE the local <header>...</header> block here */}
 
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto">
             {/* Service Header */}
             <div className="text-center mb-12">
-              <h1 className="text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-5xl font-bold mb-4 tracking-tight">
+                <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   {service.title}
                 </span>
               </h1>
-              <p className="text-xl text-gray-600">{service.description}</p>
+              <p className="text-xl text-gray-300 font-light">{service.description}</p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Service Details */}
               <div className="space-y-8">
-                <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+                <Card className="shadow-2xl border-0 bg-gradient-to-br from-gray-900/80 to-slate-800/80 backdrop-blur-sm border border-white/10">
                   <CardHeader>
-                    <CardTitle className="text-2xl text-gray-800">What We Offer</CardTitle>
+                    <CardTitle className="text-2xl text-white font-semibold tracking-tight">What We Offer</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
                       {service.details.map((detail, index) => (
                         <li key={index} className="flex items-start gap-3">
-                          <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{detail}</span>
+                          <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-300 font-light">{detail}</span>
                         </li>
                       ))}
                     </ul>
                   </CardContent>
                 </Card>
 
-                <Card className="shadow-lg border-0 bg-gradient-to-br from-blue-50 to-purple-50">
+                <Card className="shadow-2xl border-0 bg-gradient-to-br from-gray-900/80 to-slate-800/80 backdrop-blur-sm border border-white/10">
                   <CardHeader>
-                    <CardTitle className="text-2xl text-gray-800">Key Benefits</CardTitle>
+                    <CardTitle className="text-2xl text-white font-semibold tracking-tight">Key Benefits</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
                       {service.benefits.map((benefit, index) => (
                         <li key={index} className="flex items-start gap-3">
-                          <CheckCircle className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
+                          <CheckCircle className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-300 font-light">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -406,19 +406,19 @@ const ServiceDetail = () => {
 
               {/* Appointment Form */}
               <div>
-                <Card className="shadow-2xl border-0 bg-white sticky top-8">
+                <Card className="shadow-2xl border-0 bg-gradient-to-br from-gray-900/90 to-slate-800/90 backdrop-blur-sm border border-white/10 sticky top-8">
                   <CardHeader>
-                    <CardTitle className="text-xl md:text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent break-words">
+                    <CardTitle className="text-xl md:text-2xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold tracking-tight">
                       Book an Appointment
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-gray-300 font-light">
                       Get expert assistance with our {service.title.toLowerCase()} services
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name" className="flex items-center gap-2 text-gray-700 font-medium">
+                        <Label htmlFor="name" className="flex items-center gap-2 text-gray-300 font-medium">
                           <User className="h-4 w-4" />
                           Your Name
                         </Label>
@@ -430,12 +430,12 @@ const ServiceDetail = () => {
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                          className="border-gray-700 bg-gray-800/50 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 backdrop-blur-sm"
                         />
                       </div>
                       
                       <div className="space-y-2">
-                        <Label htmlFor="phone" className="flex items-center gap-2 text-gray-700 font-medium">
+                        <Label htmlFor="phone" className="flex items-center gap-2 text-gray-300 font-medium">
                           <Phone className="h-4 w-4" />
                           Phone Number
                         </Label>
@@ -447,12 +447,12 @@ const ServiceDetail = () => {
                           value={formData.phone}
                           onChange={handleInputChange}
                           required
-                          className="border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                          className="border-gray-700 bg-gray-800/50 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 backdrop-blur-sm"
                         />
                       </div>
                       
                       <div className="space-y-2">
-                        <Label htmlFor="email" className="flex items-center gap-2 text-gray-700 font-medium">
+                        <Label htmlFor="email" className="flex items-center gap-2 text-gray-300 font-medium">
                           <Mail className="h-4 w-4" />
                           Email Address
                         </Label>
@@ -464,13 +464,13 @@ const ServiceDetail = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                          className="border-gray-700 bg-gray-800/50 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 backdrop-blur-sm"
                         />
                       </div>
                       
                       <Button 
                         type="submit" 
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg text-base md:text-lg py-3 break-words" 
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-2xl text-base md:text-lg py-3 break-words border border-white/20 backdrop-blur-sm" 
                         size="lg"
                       >
                         Book Appointment Now
@@ -478,17 +478,17 @@ const ServiceDetail = () => {
                     </form>
                     
                     <div className="mt-6 space-y-4">
-                      <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg text-center border border-blue-100">
-                        <p className="text-blue-800 font-medium">We'll reach out to you soon!</p>
+                      <div className="p-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-lg text-center border border-blue-500/20 backdrop-blur-sm">
+                        <p className="text-blue-300 font-medium">We'll reach out to you soon!</p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-                <div className="text-center">
-                  <p className="text-gray-600 mb-4">Or reach out to us directly on WhatsApp</p>
+                <div className="text-center mt-6">
+                  <p className="text-gray-300 mb-4 font-light">Or reach out to us directly on WhatsApp</p>
                   <Button
                     onClick={() => window.open(whatsappUrl, '_blank')}
-                    className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 mx-auto"
+                    className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-2xl flex items-center gap-2 mx-auto border border-white/20 backdrop-blur-sm"
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
