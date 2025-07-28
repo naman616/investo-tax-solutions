@@ -251,7 +251,7 @@ const serviceDetails = {
     ]
   },
   'on-site-remote-accounting': {
-    title: 'On-Site & Remote Accounting',
+    title: 'On-Site & Remote Accounting Support',
     description: 'Providing skilled human resources for maintaining accounts and bookkeeping at your premises or remotely.',
     details: [
       'On-site Bookkeeping & Accounting',
