@@ -108,6 +108,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       fileInfos.forEach(file => {
         try {
           if (fs.existsSync(file.path)) {
+
             fs.unlinkSync(file.path);
           }
         } catch (e) {

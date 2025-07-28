@@ -8,132 +8,270 @@ import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "@/components/BackButton";
 
 const serviceDetails = {
-  'gst-services': {
-    title: 'GST Services',
-    description: 'Comprehensive GST solutions for your business',
+  'direct-taxation': {
+    title: 'Direct Taxation',
+    description: 'Income tax return, End-to-end income tax compliance and advisory for individuals and businesses.',
     details: [
-      'GST Registration and Setup',
-      'Monthly/Quarterly GST Filing',
-      'GST Compliance Management',
-      'GST Advisory Services',
-      'Input Tax Credit Optimization',
-      'GST Audit and Assessment Support'
+      'Income Tax Return Filing (ITR) for Individuals & Businesses',
+      'Tax Planning & Optimization Strategies',
+      'Advance Tax Calculation & Payment',
+      'Capital Gains Tax Planning & Compliance',
+      'Tax Audit Support & Representation',
+      'Tax Notice Handling & Assessment Support',
+      'International Taxation & DTAA Compliance',
+      'Tax Litigation & Appeal Representation',
     ],
     benefits: [
-      'Expert guidance on GST compliance',
-      'Timely filing to avoid penalties',
-      'Maximum tax credit utilization',
-      'Professional support throughout'
+      'Accurate and timely tax filing with zero penalties',
+      'Personalized tax planning to minimize tax liability',
+      'Expert guidance on complex tax matters',
+      'Comprehensive support for notices and scrutiny',
+      'Strategic tax optimization for maximum savings',
+      'Professional representation before tax authorities',
     ]
   },
-  'e-invoicing': {
-    title: 'E-Invoicing',
-    description: 'Digital invoicing solutions for seamless business operations',
+  'indirect-taxation-gst': {
+    title: 'Indirect Taxation (GST)',
+    description: 'Comprehensive GST services including registration, returns, reconciliation, and audits.',
     details: [
-      'E-Invoice Registration',
-      'Invoice Report Portal (IRP) Setup',
-      'Real-time Invoice Generation',
-      'API Integration Support',
-      'Compliance Monitoring',
-      'Error Resolution Services'
+      'GST Registration & Amendment Services',
+      'Monthly/Quarterly GST Return Filing (GSTR-1, GSTR-3B)',
+      'GST Reconciliation & Matching',
+      'Input Tax Credit Optimization & Management',
+      'GST Audit & Assessment Support',
+      'GST Refund Processing & Follow-up',
+      'E-invoicing Implementation & Support',
+      'GST Advisory & Compliance Review',
     ],
     benefits: [
-      'Automated invoice processing',
-      'Reduced manual errors',
-      'Faster payment cycles',
-      'Complete regulatory compliance'
+      'End-to-end GST compliance with zero penalties',
+      'Maximum input tax credit utilization',
+      'Expert handling of GST audits and assessments',
+      'Seamless e-invoicing implementation',
+      'Timely refund processing',
+      'Comprehensive GST advisory support',
     ]
   },
-  'e-way-bill': {
-    title: 'E-Way Bill',
-    description: 'Streamlined goods movement with digital documentation',
+  'tds-tcs-compliance': {
+    title: 'TDS & TCS Compliance',
+    description: 'Accurate deduction, return filing, and compliance with TDS/TCS provisions.',
     details: [
-      'E-Way Bill Generation',
-      'Bulk Upload Facility',
-      'Vehicle Assignment',
-      'Part-A and Part-B Completion',
-      'Cancellation Support',
-      'Compliance Tracking'
+      'TDS/TCS Return Filing (Form 24Q, 26Q, 27Q, 27EQ)',
+      'TDS/TCS Deduction Calculation & Compliance',
+      'TDS Certificate Generation (Form 16, 16A)',
+      'Lower/Nil Deduction Certificate Assistance',
+      'TDS/TCS Correction & Revision of Returns',
+      'TDS/TCS Reconciliation & Matching',
+      'TDS/TCS Audit Support',
+      'TDS/TCS Notice Handling & Representation',
     ],
     benefits: [
-      'Hassle-free goods transportation',
-      'Real-time tracking capability',
-      'Penalty avoidance',
-      'Simplified logistics management'
-    ]
-  },
-  'maxitc': {
-    title: 'MaxITC',
-    description: 'Maximize your Input Tax Credit benefits',
-    details: [
-      'ITC Reconciliation',
-      'Credit Matching Services',
-      'Blocked Credit Analysis',
-      'Reversal Management',
-      'Advisory on ITC Claims',
-      'Optimization Strategies'
-    ],
-    benefits: [
-      'Higher cash flow through ITC',
-      'Reduced tax liability',
-      'Expert credit management',
-      'Compliance assurance'
-    ]
-  },
-  'tds-services': {
-    title: 'TDS Services',
-    description: 'Complete TDS compliance and management solutions',
-    details: [
-      'TDS Registration',
-      'Monthly TDS Filing',
-      'TDS Certificate Issuance',
-      'Lower Deduction Certificates',
-      'TDS Reconciliation',
-      'Penalty Management'
-    ],
-    benefits: [
-      'Accurate TDS calculations',
-      'Timely compliance',
+      'Accurate deduction and timely filing',
+      'Avoidance of interest and penalties',
+      'Expert support for TDS/TCS queries',
+      'End-to-end compliance management',
       'Professional certificate management',
-      'Audit support services'
+      'Comprehensive audit support',
     ]
   },
-  'financing': {
-    title: 'Business Financing',
-    description: 'Financial solutions to fuel your business growth',
+  'accounting-bookkeeping': {
+    title: 'Accounting & Bookkeeping',
+    description: 'Reliable day-to-day bookkeeping and financial statement preparation.',
     details: [
-      'Working Capital Loans',
-      'Term Loans',
-      'Equipment Financing',
-      'Trade Finance',
-      'Credit Line Facilities',
-      'Loan Documentation Support'
+      'Day-to-day Bookkeeping & Ledger Maintenance',
+      'Preparation of Financial Statements (P&L, Balance Sheet)',
+      'Bank Reconciliation & Cash Flow Management',
+      'Accounts Payable & Receivable Management',
+      'MIS Reporting & Financial Analysis',
+      'Inventory Management & Cost Accounting',
+      'Payroll Processing & Compliance',
+      'Budget Preparation & Variance Analysis',
     ],
     benefits: [
-      'Quick approval process',
-      'Competitive interest rates',
-      'Flexible repayment options',
-      'Expert financial guidance'
+      'Accurate and up-to-date financial records',
+      'Improved financial decision-making',
+      'Compliance with statutory requirements',
+      'Reduced risk of errors and fraud',
+      'Enhanced cash flow management',
+      'Professional financial reporting',
     ]
   },
-  'invoice-discounting': {
-    title: 'Invoice Discounting',
-    description: 'Convert your invoices into immediate cash flow',
+  'audits-assurance': {
+    title: 'Audits & Assurance',
+    description: 'Statutory, tax, and GST audits with full regulatory compliance and transparency.',
     details: [
-      'Invoice Evaluation',
-      'Quick Fund Disbursement',
-      'Flexible Tenure Options',
-      'Digital Processing',
-      'Credit Assessment',
-      'Collection Support'
+      'Statutory Audit under Companies Act, 2013',
+      'Tax Audit under Section 44AB of Income Tax Act',
+      'GST Audit under Section 35(5) of CGST Act',
+      'Special Purpose Audit & Due Diligence',
+      'Internal Audit & Control Review',
+      'Audit Report Preparation & Certification',
+      'Audit Follow-up & Compliance Monitoring',
+      'Audit Advisory & Best Practices',
     ],
     benefits: [
-      'Immediate cash flow',
-      'No collateral required',
-      'Maintain customer relationships',
-      'Improved working capital'
+      'Regulatory compliance and transparency',
+      'Enhanced stakeholder confidence',
+      'Early detection of discrepancies',
+      'Improved internal controls',
+      'Professional audit reporting',
+      'Comprehensive audit support',
     ]
-  }
+  },
+  'internal-management-audits': {
+    title: 'Internal & Management Audits',
+    description: 'Independent audit services to improve internal controls and business efficiency.',
+    details: [
+      'Internal Control Review & Assessment',
+      'Process & Risk Assessment',
+      'Management Audit & Performance Review',
+      'Operational Audit & Efficiency Analysis',
+      'Fraud Detection & Prevention',
+      'Compliance Audit & Monitoring',
+      'IT Audit & System Review',
+      'Management Advisory Services',
+    ],
+    benefits: [
+      'Improved internal controls and efficiency',
+      'Enhanced operational performance',
+      'Risk mitigation and fraud prevention',
+      'Actionable management insights',
+      'Cost optimization opportunities',
+      'Strategic business improvements',
+    ]
+  },
+  'business-financial-consultancy': {
+    title: 'Business & Financial Consultancy',
+    description: 'Strategic support in structuring, funding, projections, and financial planning.',
+    details: [
+      'Business Structuring & Entity Selection',
+      'Financial Projections & Business Plans',
+      'Funding & Loan Advisory Services',
+      'Budgeting & Forecasting',
+      'Mergers & Acquisitions Support',
+      'Investment Advisory & Portfolio Management',
+      'Cost Optimization & Profitability Analysis',
+      'Strategic Financial Planning',
+    ],
+    benefits: [
+      'Strategic business growth planning',
+      'Optimized financial performance',
+      'Access to funding solutions',
+      'Expert guidance for complex transactions',
+      'Enhanced profitability and efficiency',
+      'Comprehensive financial advisory',
+    ]
+  },
+  'roc-corporate-compliance': {
+    title: 'ROC & Corporate Compliance',
+    description: 'End-to-end MCA filings, company law compliance, and regulatory support.',
+    details: [
+      'MCA/ROC Filings & Annual Returns',
+      'Company Law Compliance & Advisory',
+      'Director KYC & Compliance',
+      'Board Meeting & AGM Support',
+      'Corporate Restructuring & Amalgamation',
+      'Foreign Direct Investment (FDI) Compliance',
+      'Corporate Governance Advisory',
+      'Regulatory Reporting & Monitoring',
+    ],
+    benefits: [
+      'Hassle-free compliance management',
+      'Avoidance of penalties and legal issues',
+      'Expert legal and regulatory support',
+      'Timely statutory filings',
+      'Enhanced corporate governance',
+      'Comprehensive compliance monitoring',
+    ]
+  },
+  'litigation-representation': {
+    title: 'Litigation & Representation Services',
+    description: 'Expert handling of notices, assessments, and appeals before tax authorities.',
+    details: [
+      'Drafting & Filing of Appeals',
+      'Representation before Tax Authorities',
+      'Handling Tax Notices & Assessments',
+      'Assessment Proceedings Support',
+      'Legal Advisory & Opinion',
+      'Settlement & Mediation Support',
+      'Stay Applications & Recovery Proceedings',
+      'Expert Witness Services',
+    ],
+    benefits: [
+      'Effective dispute resolution',
+      'Reduced litigation risk and costs',
+      'Expert legal representation',
+      'Comprehensive legal support',
+      'Timely resolution of tax disputes',
+      'Professional advocacy services',
+    ]
+  },
+  'trust-formation-compliance': {
+    title: 'Trust Formation & Compliance',
+    description: 'Trust registration, 12A/80G approvals, and ongoing advisory for NGOs and charitable trusts.',
+    details: [
+      'Trust Registration & Formation',
+      '12A/80G Approval Assistance',
+      'NGO Advisory & Compliance',
+      'Trust Deed Drafting & Registration',
+      'Annual Compliance & Reporting',
+      'Tax Exemption Applications',
+      'Trust Audit Support',
+      'Regulatory Advisory & Monitoring',
+    ],
+    benefits: [
+      'Smooth trust formation process',
+      'Regulatory compliance assurance',
+      'Expert NGO and trust advisory',
+      'End-to-end support services',
+      'Tax exemption optimization',
+      'Professional compliance management',
+    ]
+  },
+  'trust-audits-reporting': {
+    title: 'Trust Audits & Reporting',
+    description: 'Dedicated audit and compliance services for public trusts, societies, and Section 8 companies.',
+    details: [
+      'Trust Audit & Certification',
+      'Society Audit & Compliance',
+      'Section 8 Company Audit',
+      'NGO Compliance Reporting',
+      'Regulatory Audit & Advisory',
+      'Financial Statement Preparation',
+      'Compliance Monitoring & Review',
+      'Audit Report Certification',
+    ],
+    benefits: [
+      'Accurate audit and reporting',
+      'Regulatory compliance assurance',
+      'Specialized NGO and trust expertise',
+      'Professional audit support',
+      'Enhanced transparency and credibility',
+      'Comprehensive compliance monitoring',
+    ]
+  },
+  'onsite-remote-accounting': {
+    title: 'On-Site & Remote Accounting Support',
+    description: 'Providing skilled human resources for maintaining accounts and bookkeeping at your premises or remotely.',
+    details: [
+      'On-site Bookkeeping & Accounting',
+      'Remote Accounting Support',
+      'Staff Placement & Training',
+      'Accounts Maintenance & Reconciliation',
+      'MIS Reporting & Analysis',
+      'Process Documentation & SOPs',
+      'Quality Control & Review',
+      'Technology Implementation Support',
+    ],
+    benefits: [
+      'Flexible accounting solutions',
+      'Access to skilled professionals',
+      'Cost-effective support services',
+      'Seamless team integration',
+      'Enhanced efficiency and accuracy',
+      'Scalable accounting support',
+    ]
+  },
 };
 
 /**

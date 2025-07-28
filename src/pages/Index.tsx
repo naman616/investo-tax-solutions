@@ -87,7 +87,8 @@ const Index = () => {
   };
 
   const handleServiceClick = (service: string) => {
-    navigate(`/services/${service.toLowerCase().replace(/\s+/g, '-')}`);
+    const urlSlug = service.toLowerCase().replace(/\s+/g, '-').replace(/[&]/g, '').replace(/--+/g, '-');
+    navigate(`/services/${urlSlug}`);
   };
 
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in your tax and business services. Can you help me?");
@@ -122,7 +123,7 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              size="lg"
+              size="lg" 
               onClick={() => navigate('/appointment')}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
             >
@@ -156,119 +157,204 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
             <Card 
               className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-blue-50 border-0"
-              onClick={() => handleServiceClick('GST Services')}
+              onClick={() => handleServiceClick('Direct Taxation')}
             >
               <CardHeader className="text-center p-3 md:p-6">
                 <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full w-fit">
                   <Calculator className="h-4 w-4 md:h-8 md:w-8 text-white" />
                 </div>
                 <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  GST Services
+                  Direct Taxation
                 </CardTitle>
                 <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Complete GST registration, filing, and compliance management
+                  Income tax return, End-to-end income tax compliance and advisory
                 </CardDescription>
               </CardHeader>
             </Card>
 
             <Card 
               className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-green-50 border-0"
-              onClick={() => handleServiceClick('E-Invoicing')}
+              onClick={() => handleServiceClick('Indirect Taxation (GST)')}
             >
               <CardHeader className="text-center p-3 md:p-6">
                 <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-full w-fit">
                   <FileText className="h-4 w-4 md:h-8 md:w-8 text-white" />
                 </div>
                 <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
-                  E-Invoicing
+                  Indirect Taxation (GST)
                 </CardTitle>
                 <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Seamless electronic invoicing solutions for B2B transactions
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-orange-50 border-0"
-              onClick={() => handleServiceClick('E-Way Bill')}
-            >
-              <CardHeader className="text-center p-3 md:p-6">
-                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full w-fit">
-                  <Receipt className="h-4 w-4 md:h-8 md:w-8 text-white" />
-                </div>
-                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                  E-Way Bill
-                </CardTitle>
-                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Automated e-way bill generation and management system
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-purple-50 border-0"
-              onClick={() => handleServiceClick('MaxITC')}
-            >
-              <CardHeader className="text-center p-3 md:p-6">
-                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full w-fit">
-                  <TrendingUp className="h-4 w-4 md:h-8 md:w-8 text-white" />
-                </div>
-                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  MaxITC
-                </CardTitle>
-                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Maximize your Input Tax Credit with our expert guidance
+                  Comprehensive GST services including registration, returns, and audits
                 </CardDescription>
               </CardHeader>
             </Card>
 
             <Card 
               className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-indigo-50 border-0"
-              onClick={() => handleServiceClick('TDS Services')}
+              onClick={() => handleServiceClick('TDS & TCS Compliance')}
             >
               <CardHeader className="text-center p-3 md:p-6">
                 <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full w-fit">
                   <CreditCard className="h-4 w-4 md:h-8 md:w-8 text-white" />
                 </div>
                 <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
-                  TDS Services
+                  TDS & TCS Compliance
                 </CardTitle>
                 <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Tax Deducted at Source compliance and filing services
+                  Accurate deduction, return filing, and compliance with TDS/TCS provisions
                 </CardDescription>
               </CardHeader>
             </Card>
 
             <Card 
               className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-emerald-50 border-0"
-              onClick={() => handleServiceClick('Financing')}
+              onClick={() => handleServiceClick('Accounting & Bookkeeping')}
             >
               <CardHeader className="text-center p-3 md:p-6">
                 <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full w-fit">
                   <Banknote className="h-4 w-4 md:h-8 md:w-8 text-white" />
                 </div>
                 <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                  Financing
+                  Accounting & Bookkeeping
                 </CardTitle>
                 <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Business financing solutions to fuel your growth
+                  Reliable day-to-day bookkeeping and financial statement preparation
                 </CardDescription>
               </CardHeader>
             </Card>
 
             <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-cyan-50 border-0 col-span-2 md:col-span-2 lg:col-span-1 cursor-pointer"
-              onClick={() => handleServiceClick('Invoice Discounting')}
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-purple-50 border-0"
+              onClick={() => handleServiceClick('Audits & Assurance')}
+            >
+              <CardHeader className="text-center p-3 md:p-6">
+                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full w-fit">
+                  <Shield className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                </div>
+                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  Audits & Assurance
+                </CardTitle>
+                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
+                  Statutory, tax, and GST audits with full regulatory compliance
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card 
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-orange-50 border-0"
+              onClick={() => handleServiceClick('Internal & Management Audits')}
+            >
+              <CardHeader className="text-center p-3 md:p-6">
+                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full w-fit">
+                  <TrendingUp className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                </div>
+                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                  Internal & Management Audits
+                </CardTitle>
+                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
+                  Independent audit services to improve internal controls and efficiency
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card 
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-cyan-50 border-0"
+              onClick={() => handleServiceClick('Business & Financial Consultancy')}
             >
               <CardHeader className="text-center p-3 md:p-6">
                 <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-fit">
-                  <FileText className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                  <Users className="h-4 w-4 md:h-8 md:w-8 text-white" />
                 </div>
                 <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                  Invoice Discounting
+                  Business & Financial Consultancy
                 </CardTitle>
                 <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Convert your invoices to immediate cash flow
+                  Strategic support in structuring, funding, projections, and planning
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card 
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-slate-50 border-0"
+              onClick={() => handleServiceClick('ROC & Corporate Compliance')}
+            >
+              <CardHeader className="text-center p-3 md:p-6">
+                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-slate-500 to-gray-500 rounded-full w-fit">
+                  <FileText className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                </div>
+                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-slate-600 to-gray-600 bg-clip-text text-transparent">
+                  ROC & Corporate Compliance
+                </CardTitle>
+                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
+                  End-to-end MCA filings, company law compliance, and regulatory support
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card 
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-rose-50 border-0"
+              onClick={() => handleServiceClick('Litigation & Representation Services')}
+            >
+              <CardHeader className="text-center p-3 md:p-6">
+                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full w-fit">
+                  <Shield className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                </div>
+                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
+                  Litigation & Representation Services
+                </CardTitle>
+                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
+                  Expert handling of notices, assessments, and appeals before authorities
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card 
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-violet-50 border-0"
+              onClick={() => handleServiceClick('Trust Formation & Compliance')}
+            >
+              <CardHeader className="text-center p-3 md:p-6">
+                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full w-fit">
+                  <Users className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                </div>
+                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+                  Trust Formation & Compliance
+                </CardTitle>
+                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
+                  Trust registration, 12A/80G approvals, and ongoing advisory for NGOs
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card 
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-amber-50 border-0"
+              onClick={() => handleServiceClick('Trust Audits & Reporting')}
+            >
+              <CardHeader className="text-center p-3 md:p-6">
+                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full w-fit">
+                  <FileText className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                </div>
+                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                  Trust Audits & Reporting
+                </CardTitle>
+                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
+                  Dedicated audit and compliance services for public trusts and societies
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card 
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-lime-50 border-0"
+              onClick={() => handleServiceClick('On-Site & Remote Accounting Support')}
+            >
+              <CardHeader className="text-center p-3 md:p-6">
+                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-lime-500 to-green-500 rounded-full w-fit">
+                  <Clock className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                </div>
+                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-lime-600 to-green-600 bg-clip-text text-transparent">
+                  On-Site & Remote Accounting Support
+                </CardTitle>
+                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
+                  Providing skilled human resources for maintaining accounts and bookkeeping
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -397,7 +483,7 @@ const Index = () => {
                 <li>GST Services</li>
                 <li>E-Invoicing</li>
                 <li>E-Way Bill</li>
-                <li>TDS Services</li>
+                <li>TDS & TCS Compliance</li>
                 <li>Financing</li>
                 <li>Invoice Discounting</li>
               </ul>

@@ -5,13 +5,18 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 const services = [
-  "File ITR",
-  "GST Services",
-  "Investment and Finance",
-  "TDS Services",
-  "Accounts and Book Keeping",
-  "Business Advisory",
-  "Incorporation Services",
+  "Direct Taxation",
+  "Indirect Taxation (GST)",
+  "TDS & TCS Compliance",
+  "Accounting & Bookkeeping",
+  "Audits & Assurance",
+  "Internal & Management Audits",
+  "Business & Financial Consultancy",
+  "ROC & Corporate Compliance",
+  "Litigation & Representation Services",
+  "Trust Formation & Compliance",
+  "Trust Audits & Reporting",
+  "On-Site & Remote Accounting Support",
 ];
 
 const Appointment = () => {
