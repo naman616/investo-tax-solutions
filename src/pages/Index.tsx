@@ -179,6 +179,23 @@ const Index = () => {
             </Card>
 
             <Card 
+              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-red-50 border-0"
+              onClick={() => handleServiceClick('File ITR')}
+            >
+              <CardHeader className="text-center p-3 md:p-6">
+                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-red-500 to-pink-500 rounded-full w-fit">
+                  <FileText className="h-4 w-4 md:h-8 md:w-8 text-white" />
+                </div>
+                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+                  File ITR
+                </CardTitle>
+                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
+                  Professional Income Tax Return filing services for individuals and businesses
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card 
               className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-green-50 border-0"
               onClick={() => handleServiceClick('Indirect Taxation (GST)')}
             >

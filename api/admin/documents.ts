@@ -110,6 +110,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           if (fs.existsSync(file.path)) {
 
             fs.unlinkSync(file.path);
+            
           }
         } catch (e) {
           console.warn(`Failed to delete file: ${file.path}`);

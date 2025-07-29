@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 const services = [
   "Direct Taxation",
+  "File ITR",
   "Indirect Taxation (GST)",
   "TDS & TCS Compliance",
   "Accounting & Bookkeeping",

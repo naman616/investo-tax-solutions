@@ -30,6 +30,28 @@ const serviceDetails = {
       'Professional representation before tax authorities',
     ]
   },
+  'file-itr': {
+    title: 'File ITR',
+    description: 'Professional Income Tax Return filing services for individuals and businesses.',
+    details: [
+      'Individual Income Tax Return Filing (ITR-1, ITR-2, ITR-3, ITR-4)',
+      'Business Income Tax Return Filing (ITR-3, ITR-5, ITR-6)',
+      'Tax Planning & Optimization for ITR Filing',
+      'Document Collection & Verification',
+      'Income Computation & Tax Calculation',
+      'E-filing & Acknowledgment Generation',
+      'ITR Correction & Revision Services',
+      'Post-filing Support & Query Resolution',
+    ],
+    benefits: [
+      'Accurate and timely ITR filing with zero errors',
+      'Maximum tax savings through proper planning',
+      'Complete document management and verification',
+      'Professional e-filing with instant acknowledgment',
+      'Post-filing support and query resolution',
+      'Compliance with all ITR filing requirements',
+    ]
+  },
   'indirect-taxation-gst': {
     title: 'Indirect Taxation (GST)',
     description: 'Comprehensive GST services including registration, returns, reconciliation, and audits.',
