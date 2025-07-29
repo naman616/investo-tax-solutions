@@ -140,50 +140,8 @@ const serviceDetails = {
       'Comprehensive audit support',
     ]
   },
-  'internal-management-audits': {
-    title: 'Internal & Management Audits',
-    description: 'Independent audit services to improve internal controls and business efficiency.',
-    details: [
-      'Internal Control Review & Assessment',
-      'Process & Risk Assessment',
-      'Management Audit & Performance Review',
-      'Operational Audit & Efficiency Analysis',
-      'Fraud Detection & Prevention',
-      'Compliance Audit & Monitoring',
-      'IT Audit & System Review',
-      'Management Advisory Services',
-    ],
-    benefits: [
-      'Improved internal controls and efficiency',
-      'Enhanced operational performance',
-      'Risk mitigation and fraud prevention',
-      'Actionable management insights',
-      'Cost optimization opportunities',
-      'Strategic business improvements',
-    ]
-  },
-  'business-financial-consultancy': {
-    title: 'Business & Financial Consultancy',
-    description: 'Strategic support in structuring, funding, projections, and financial planning.',
-    details: [
-      'Business Structuring & Entity Selection',
-      'Financial Projections & Business Plans',
-      'Funding & Loan Advisory Services',
-      'Budgeting & Forecasting',
-      'Mergers & Acquisitions Support',
-      'Investment Advisory & Portfolio Management',
-      'Cost Optimization & Profitability Analysis',
-      'Strategic Financial Planning',
-    ],
-    benefits: [
-      'Strategic business growth planning',
-      'Optimized financial performance',
-      'Access to funding solutions',
-      'Expert guidance for complex transactions',
-      'Enhanced profitability and efficiency',
-      'Comprehensive financial advisory',
-    ]
-  },
+
+
   'roc-corporate-compliance': {
     title: 'ROC & Corporate Compliance',
     description: 'End-to-end MCA filings, company law compliance, and regulatory support.',
@@ -250,50 +208,8 @@ const serviceDetails = {
       'Professional compliance management',
     ]
   },
-  'trust-audits-reporting': {
-    title: 'Trust Audits & Reporting',
-    description: 'Dedicated audit and compliance services for public trusts, societies, and Section 8 companies.',
-    details: [
-      'Trust Audit & Certification',
-      'Society Audit & Compliance',
-      'Section 8 Company Audit',
-      'NGO Compliance Reporting',
-      'Regulatory Audit & Advisory',
-      'Financial Statement Preparation',
-      'Compliance Monitoring & Review',
-      'Audit Report Certification',
-    ],
-    benefits: [
-      'Accurate audit and reporting',
-      'Regulatory compliance assurance',
-      'Specialized NGO and trust expertise',
-      'Professional audit support',
-      'Enhanced transparency and credibility',
-      'Comprehensive compliance monitoring',
-    ]
-  },
-  'onsite-remote-accounting': {
-    title: 'On-Site & Remote Accounting Support',
-    description: 'Providing skilled human resources for maintaining accounts and bookkeeping at your premises or remotely.',
-    details: [
-      'On-site Bookkeeping & Accounting',
-      'Remote Accounting Support',
-      'Staff Placement & Training',
-      'Accounts Maintenance & Reconciliation',
-      'MIS Reporting & Analysis',
-      'Process Documentation & SOPs',
-      'Quality Control & Review',
-      'Technology Implementation Support',
-    ],
-    benefits: [
-      'Flexible accounting solutions',
-      'Access to skilled professionals',
-      'Cost-effective support services',
-      'Seamless team integration',
-      'Enhanced efficiency and accuracy',
-      'Scalable accounting support',
-    ]
-  },
+
+
 };
 
 /**

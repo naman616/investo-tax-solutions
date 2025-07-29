@@ -263,39 +263,7 @@ const Index = () => {
               </CardHeader>
             </Card>
 
-            <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-orange-50 border-0"
-              onClick={() => handleServiceClick('Internal & Management Audits')}
-            >
-              <CardHeader className="text-center p-3 md:p-6">
-                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full w-fit">
-                  <TrendingUp className="h-4 w-4 md:h-8 md:w-8 text-white" />
-                </div>
-                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                  Internal & Management Audits
-                </CardTitle>
-                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Independent audit services to improve internal controls and efficiency
-                </CardDescription>
-              </CardHeader>
-            </Card>
 
-            <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-cyan-50 border-0"
-              onClick={() => handleServiceClick('Business & Financial Consultancy')}
-            >
-              <CardHeader className="text-center p-3 md:p-6">
-                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-fit">
-                  <Users className="h-4 w-4 md:h-8 md:w-8 text-white" />
-                </div>
-                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                  Business & Financial Consultancy
-                </CardTitle>
-                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Strategic support in structuring, funding, projections, and planning
-                </CardDescription>
-              </CardHeader>
-            </Card>
 
             <Card 
               className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-slate-50 border-0"
@@ -348,39 +316,9 @@ const Index = () => {
               </CardHeader>
             </Card>
 
-            <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-amber-50 border-0"
-              onClick={() => handleServiceClick('Trust Audits & Reporting')}
-            >
-              <CardHeader className="text-center p-3 md:p-6">
-                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full w-fit">
-                  <FileText className="h-4 w-4 md:h-8 md:w-8 text-white" />
-                </div>
-                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                  Trust Audits & Reporting
-                </CardTitle>
-                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Dedicated audit and compliance services for public trusts and societies
-                </CardDescription>
-              </CardHeader>
-            </Card>
 
-            <Card 
-              className="hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-lime-50 border-0"
-              onClick={() => handleServiceClick('On-Site & Remote Accounting')}
-            >
-              <CardHeader className="text-center p-3 md:p-6">
-                <div className="mx-auto mb-2 md:mb-4 p-2 md:p-3 bg-gradient-to-r from-lime-500 to-green-500 rounded-full w-fit">
-                  <Clock className="h-4 w-4 md:h-8 md:w-8 text-white" />
-                </div>
-                <CardTitle className="text-sm md:text-xl bg-gradient-to-r from-lime-600 to-green-600 bg-clip-text text-transparent">
-                  On-Site & Remote Accounting
-                </CardTitle>
-                <CardDescription className="text-xs md:text-sm text-gray-600 hidden md:block">
-                  Providing skilled human resources for maintaining accounts and bookkeeping
-                </CardDescription>
-              </CardHeader>
-            </Card>
+
+
           </div>
         </div>
       </section>

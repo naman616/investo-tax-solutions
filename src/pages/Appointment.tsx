@@ -11,13 +11,9 @@ const services = [
   "TDS & TCS Compliance",
   "Accounting & Bookkeeping",
   "Audits & Assurance",
-  "Internal & Management Audits",
-  "Business & Financial Consultancy",
   "ROC & Corporate Compliance",
   "Litigation & Representation",
   "Trust Formation & Compliance",
-  "Trust Audits & Reporting",
-  "On-Site & Remote Accounting",
 ];
 
 const Appointment = () => {
